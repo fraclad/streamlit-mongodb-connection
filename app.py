@@ -45,9 +45,9 @@ def main():
     user_input_insert = st.text_input("MongoDB insert query (you must change the query a little bit for this to work)", sample_insert_query)
     query_insert = json.loads(user_input_insert)
     if st.button("insert record"):
-        if len(list(query_insert)) == 1:
+        try:
             conn.insert_one(query_insert)
-        if len(query_insert) > 1:
+        except:
             conn.insert_many(query_insert)
         st.markdown("record(s) inserted! you can use the query feature above to see the record(s) you just inserted!")
             
