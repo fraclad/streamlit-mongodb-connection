@@ -42,7 +42,7 @@ def main():
     "email": "deeeeezn@lol.com"
     }
     """
-    user_input_insert = st.text_input("MongoDB insert query (you must change the query a little bit for this to work)", sample_insert_query)
+    user_input_insert = st.text_input("MongoDB insert query", sample_insert_query)
     query_insert = json.loads(user_input_insert)
     if st.button("insert record"):
         try:
