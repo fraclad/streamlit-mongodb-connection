@@ -6,8 +6,7 @@ import json
 
 def main():
         
-    conn = st.experimental_connection(name = "mongodb", 
-                                      database_url = "mongodb+srv://demo_read:demo_read@cluster0useast1.rhpmhuc.mongodb.net/?retryWrites=true&w=majority",
+    conn = st.experimental_connection(name = "mongodb",
                                       type = MongoDBConnection, 
                                       db_name = "streamlit_hackathon", collection_name = "us_senators")
     

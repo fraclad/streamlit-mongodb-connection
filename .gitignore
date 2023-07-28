@@ -1,3 +1,4 @@
 venv_*/
 *pycache*/
 .DS_Store
+secrets.toml

@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from pymongo.collection import Collection
 from typing import List, Union
 import certifi
+import streamlit as st
 
 class MongoDBConnection(ExperimentalBaseConnection[MongoClient]):
     """Basic st.experimental_connection implementation for MongoDB"""
@@ -18,7 +19,8 @@ class MongoDBConnection(ExperimentalBaseConnection[MongoClient]):
         if 'database_url' in kwargs:
             database_url = kwargs.pop('database_url')
         else:
-            database_url = self._secrets['mongo_connect_url'] 
+            # database_url = self._secrets['mongo_connect_url'] 
+            database_url = st.secrets.get("mongo_connect_url")
         return MongoClient(database_url)
 
     def _get_collection(self) -> Collection:
