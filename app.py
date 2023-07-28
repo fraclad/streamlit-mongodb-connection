@@ -28,8 +28,8 @@ def main():
     
     st.markdown("## Querying from a MongoDB collection")
     user_input_query = st.text_input("MongoDB query (you can try different states or filter by different fields!)", '{"state": "TX"}')
-    query = json.loads(user_input_query)
     if st.button("query data"):
+        query = json.loads(user_input_query)
         data = conn.query_many(query)
         st.write(data)
     
